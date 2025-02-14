@@ -1,0 +1,128 @@
+<HTML>
+<HEAD>
+<TITLE>Power Calcs</TITLE>
+<SCRIPT>
+function main() 
+{
+
+}
+function Power() 
+{
+
+	var current;
+	var volt;
+	var ansPow;
+	
+	current = prompt("What is the current ");
+	volt = prompt("What is the voltage ");
+	
+	current = parseFloat(current);
+	volt = parseFloat(volt);
+	
+	ansPow = volt * current;
+	
+	document.getElementById("output").innerHTML = "<p>Power Selected</p>";
+	
+	document.getElementById("answer").innerHTML = ansPow;
+	
+}
+function Current() 
+{
+	var volt;
+	var power;
+	var ansCur;
+	
+	volt = prompt("What is the voltage ");
+	power = prompt("What is the Power ");
+	
+	volt = parseFloat(volt);
+	power = parseFloat(power);
+	
+	ansCur = power / volt;
+	
+	document.getElementById("output").innerHTML = "<p>current Selected</p>";
+	
+	document.getElementById("answer").innerHTML = ansCur;
+	
+}
+function Volts() 
+{
+	var current;
+	var power;
+	var ansVol;
+
+	current = prompt("What is the current ");
+	Power = prompt("What is the Power");
+	
+	current = parseFloat(current);
+	power = parseFloat(power);
+	
+	ansVol = power / current;
+	
+	document.getElementById("output").innerHTML = "<P><B>volts Selected<B></P>";
+	document.getElementById("answer").innerHTML = ansVol;
+	
+}
+
+
+window.onload = function() {
+	main();
+	
+	document.getElementById("PowerButton").addEventListener("click", Power);
+	document.getElementById("CurrentButton").addEventListener("click", Current);
+	document.getElementById("VoltsButton").addEventListener("click", Volts);
+};
+
+
+</SCRIPT>
+</HEAD>
+<BODY bgcolor="white">
+<CENTER>
+<H2>Power Calcs</H2>
+<HR>
+<BUTTON id="PowerButton">Power</BUTTON>
+<BR><BR>
+<BUTTON id="CurrentButton">Current</BUTTON>
+<BR><BR>
+<BUTTON id="VoltsButton">Volts</BUTTON>
+<BR><BR>
+<DIV id="output"></DIV>
+<DIV id="answer"></DIV>
+</CENTER>
+<STYLE>
+  button {
+    padding: 30px 30px;
+    border: none;
+    border-radius: 25px;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 10px 0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    color: black;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+  }
+
+	#VoltsButton {
+		background-color: #3E7CB1
+	}
+	
+	#PowerButton {
+		background-color: #3E7CB1
+	}
+	
+	#CurrentButton {
+		background-color: #3E7CB1
+	}
+
+
+  /* Active state for all buttons */
+  button:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2) inset;
+  }
+</STYLE>
+</BODY>
+</HTML>
