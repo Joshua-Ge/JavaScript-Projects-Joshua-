@@ -1,0 +1,34 @@
+<HTML>
+<HEAD>
+<TITLE>The Foundation Page</TITLE>
+<SCRIPT LANGUAGE = "JavaScript">
+function Main() 
+{
+	var YearBorn;
+	var ThisYear = 2025;
+	var age;	
+
+	var YearBorn = prompt("What year were you born?");
+	parseInt(YearBorn);
+
+        if (!isNaN(YearBorn) && YearBorn > 0 && YearBorn <= ThisYear) {
+        	age = ThisYear - YearBorn;
+        	document.write("Your age this year is: " + age)
+       	} else {
+                document.write("Please enter a valid year.");
+        }
+    }
+
+window.onload = function() {
+    main();
+
+};
+</SCRIPT>
+</HEAD>
+<BODY>
+<BODY BGCOLOR = white>
+<H2>Age Calculator (2025)</H2>
+<HR>
+<SCRIPT LANGUAGE="JavaScript">Main();</SCRIPT>
+</BODY>
+</HTML>

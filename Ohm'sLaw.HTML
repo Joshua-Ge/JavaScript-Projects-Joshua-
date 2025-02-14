@@ -1,0 +1,149 @@
+<HTML>
+<HEAD>
+<TITLE>Ohm's Law</TITLE>
+<SCRIPT>
+function main() 
+{
+
+}
+
+function Resistance() 
+{
+
+	var current;
+	var volt;
+	var ansRes
+	
+	document.getElementById("output").innerHTML = "<p>Resistance Selected</p>";
+	
+	current = prompt("What is the current ");
+	volt = prompt("What is the voltage ");
+	
+	current = parseFloat(current);
+	volt = parseFloat(volt);
+	
+	if (!isNaN(current) && !isNaN(volt) && current > 0 && volt > 0) {
+		ansRes = volt / current;
+		document.getElementById("answer").innerHTML = ansRes;
+	} else if (current <= 0 || volt <= 0) {
+		document.getElementById("answer").innerHTML = "<P><B>Ensure that all values are greater than zero</B></P>"
+	} else {
+		document.getElementById("answer").innerHTML = "<P><B>Ensure that a value has been entered for all values</B></P>"
+	}
+	
+}
+
+function Current() 
+{
+	var volt;
+	var resistance;
+	var ansCur;
+	
+	document.getElementById("output").innerHTML = "<p>Current Selected</p>";	
+	
+	volt = prompt("What is the voltage ");
+	resistance = prompt("What is the Resistance ");
+	
+	volt = parseFloat(volt);
+	resistance = parseFloat(resistance);
+	
+	if (!isNaN(volt) && !isNaN(resistance) && volt > 0 && resistance > 0) {
+		ansCur = volt / resistance;
+		document.getElementById("answer").innerHTML = ansCur;
+	} else if (volt <= 0 || resistance <= 0) {
+		document.getElementById("answer").innerHTML = "<P><B>Ensure that all values are greater than zero</B></P>"
+	} else {
+		document.getElementById("answer").innerHTML = "<P><B>Ensure that a value has been entered for all values</B></P>"
+	}
+	
+}
+
+function Volts() 
+{
+	var current;
+	var resistance;
+	var ansVol;
+	document.getElementById("output").innerHTML = "<P><B>Volts Selected<B></P>";
+	
+	current = prompt("What is the current ");
+	resistance = prompt("What is the resistance");
+	
+	current = parseFloat(current);
+	resistance = parseFloat(resistance);
+	
+	if (!isNaN(current) && !isNaN(resistance) && current > 0 && resistance > 0) {
+		ansVol = current * resistance;
+		
+		document.getElementById("answer").innerHTML = ansVol;
+	} else if (current <= 0 || resistance <= 0) {
+		document.getElementById("answer").innerHTML = "<P><B>Ensure that all values are greater than zero</B></P>"
+	} else {
+		document.getElementById("answer").innerHTML = "<P><B>Ensure that a value has been entered for all values</B></P>"
+	}
+	
+}
+
+
+window.onload = function() {
+	main();
+	
+	document.getElementById("ResistanceButton").addEventListener("click", Resistance);
+	document.getElementById("CurrentButton").addEventListener("click", Current);
+	document.getElementById("VoltsButton").addEventListener("click", Volts);
+};
+
+
+</SCRIPT>
+</HEAD>
+<BODY bgcolor="white">
+<CENTER>
+<H2>Ohm's Law</H2>
+<HR>
+<BUTTON id="ResistanceButton">Resistance</BUTTON>
+<BR><BR>
+<BUTTON id="CurrentButton">Current</BUTTON>
+<BR><BR>
+<BUTTON id="VoltsButton">Volts</BUTTON>
+<BR><BR>
+<DIV id="output"></DIV>
+<DIV id="answer"></DIV>
+</CENTER>
+<STYLE>
+  button {
+	height: 60px;
+	width: 200px;
+    padding: 0;
+    border: none;
+    border-radius: 25px;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 10px 0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    color: black;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+  }
+
+	#VoltsButton {
+		background-color: #3E7CB1
+	}
+	
+	#ResistanceButton {
+		background-color: #3E7CB1
+	}
+	
+	#CurrentButton {
+		background-color: #3E7CB1
+	}
+
+
+  /* Active state for all buttons */
+  button:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2) inset;
+  }
+</STYLE>
+</BODY>
+</HTML>

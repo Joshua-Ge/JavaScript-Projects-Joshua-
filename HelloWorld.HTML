@@ -1,0 +1,53 @@
+<HTML>
+<HEAD>
+<TITLE>Calculator</TITLE>
+<SCRIPT LANGUAGE="javascript">
+function main() {
+    var output = document.getElementById("output");
+    output.innerHTML = "Hello!<br>Welcome to calculator"; 
+}
+
+function calculate() {
+    var output = document.getElementById("output");
+    var num1;
+    var num2;
+    var ops;
+    var answer;
+
+    num1 = parseFloat(prompt("Pick your first number:"));
+    ops = prompt("Pick your operation (+, -, *, /):");
+    num2 = parseFloat(prompt("Pick your second number:"));
+
+    if (ops == "+") {
+        answer = num1 + num2
+    } else if (ops == "-") {
+        answer = num1 - num2
+    } else if (ops == "*") {
+        answer = num1 * num2
+    } else if (ops == "/") {
+        if (num2 !== 0) {
+            answer = num1 / num2
+        } else {
+            answer = "Error: Division by zero is not allowed."
+        }
+    } else {
+        answer = "Error: Enter a valid operation.";
+    }
+
+    output.innerHTML = "<BR>The answer is: " + answer; 
+}
+
+window.onload = function() {
+    main();
+    document.getElementById("ButtonToStart").addEventListener("click", calculate);
+};
+</SCRIPT>
+</HEAD>
+<BODY BGCOLOR="ADD8E6">
+<CENTER><h2>Calculator</h2></CENTER>
+<HR>
+<CENTER><BUTTON id="ButtonToStart">Start calcs</BUTTON></CENTER>
+<BR>
+<CENTER><DIV id="output"></DIV></CENTER>
+</BODY>
+</HTML>

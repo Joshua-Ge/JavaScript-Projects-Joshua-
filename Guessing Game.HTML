@@ -1,0 +1,46 @@
+<HTML>
+<HEAD>
+<TITLE>Guessing Game</TITLE>
+<SCRIPT LANGUAGE = "JavaScript">
+window.onload = function () {
+    // Generate random number between 1-100
+    var numberToGuess = Math.floor(Math.random() * 100) + 1;
+    
+    // Initial message to user
+    document.getElementById("messagesToUser").innerHTML = "<P>Please guess a number between 1 and 100</P>";
+    
+    // For testing purposes (you can remove this line)
+    document.getElementById("randomNumberDisplay").innerHTML = "Cheat: " + numberToGuess;
+
+    document.getElementById("submitButton").addEventListener("click", function() {
+        // Get and parse user's guess
+        var playersGuess = parseInt(document.getElementById("guess").value, 10);
+        
+        // Input validation
+        if (isNaN(playersGuess)) {
+            document.getElementById("response").innerHTML = "<P>Please enter a valid number</P>";
+            return;
+        }
+        
+        // Check guess against target number
+        if (playersGuess === numberToGuess) {
+            document.getElementById("response").innerHTML = "<P>Correct!</P>";
+        } else if (playersGuess < numberToGuess) {
+            document.getElementById("response").innerHTML = "<P>Too Low</P>";
+        } else {
+            document.getElementById("response").innerHTML = "<P>Too High</P>";
+        }
+    });
+}
+</SCRIPT>
+</HEAD>
+<BODY BGCOLOR="white">
+<H2><CENTER>Guessing Game</CENTER></H2>
+<HR>
+<DIV id="messagesToUser"></DIV>
+<DIV id="response"></DIV>
+<DIV id="randomNumberDisplay"></DIV>
+<INPUT id="guess" type="number" min="1" max="100">
+<BUTTON id="submitButton">Submit</BUTTON>
+</BODY>
+</HTML>

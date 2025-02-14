@@ -1,0 +1,40 @@
+<HTML>
+<HEAD>
+<TITLE>Question 2</TITLE>
+<SCRIPT LANGUAGE = "JavaScript">
+function main()
+{
+	var Fname;
+	var Sname;
+	var age;
+	var month;
+	var favNumber;
+	var yearBorn;
+	var luckynum;
+	
+	Fname = prompt("What is your first name >> ");
+	Sname = prompt("What is your last name >> ");
+	age = prompt("What is your age this year >> ");
+	month = prompt("what month were you born in >>");
+	favNumber = prompt("What is your favourite number");
+	
+	age = parseInt(age);
+	
+	luckynum = (favNumber * 12) - month
+	
+	yearBorn = 2025 - age;
+	
+	document.write("Big Brother Contestant Profile: <BR>");
+	document.write(Fname + " " + Sname + "was born in " + yearBorn + ", <BR>");
+	document.write("and their lucky number is " + luckynum);
+	
+}
+</SCRIPT>
+</HEAD>
+<BODY>
+<BODY BGCOLOR = white>
+<H2>Question 2</H2>
+<HR>
+<SCRIPT LANGUAGE="JavaScript">main();</SCRIPT>
+</BODY>
+</HTML>

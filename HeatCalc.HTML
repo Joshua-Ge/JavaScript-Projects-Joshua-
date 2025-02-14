@@ -1,0 +1,259 @@
+<HTML>
+<HEAD>
+<TITLE>HeatCalcs</TITLE>
+<SCRIPT LANGUAGE = "JavaScript">
+function main() {}
+
+function HeatJouls() {
+    var mass;
+	var C;
+	var Temp1;
+	var Temp2;
+	var tempretureDiff;
+	var cont;
+	var answerHJ;
+    
+    cont = 1;
+    
+    mass = prompt("What is the mass of the selected object (kg):");
+    C = prompt("What is the specific heat capacity of the object (J/kg·K):");
+    Temp1 = prompt("Enter initial temperature (K):");
+    Temp2 = prompt("Enter final temperature (K):");
+    
+    mass = parseFloat(mass);
+    C = parseFloat(C);
+    Temp1 = parseFloat(Temp1);
+    Temp2 = parseFloat(Temp2);
+    
+    tempretureDiff = Math.abs(Temp1 - Temp2);
+    
+    if (isNaN(mass) || isNaN(C) || isNaN(Temp1) || isNaN(Temp2)) {
+        document.getElementById("answer").innerHTML = "<P><B>Invalid input values</B></P>";
+        cont = 0;
+    } else if (mass <= 0 || C <= 0) {
+        document.getElementById("answer").innerHTML = "<P><B>Mass and heat capacity must be positive</B></P>";
+        cont = 0;
+    } else if (Temp1 <= 0 || Temp2 <= 0) {
+        document.getElementById("answer").innerHTML = "<P><B>Temperatures must be positive</B></P>";
+        cont = 0;
+    }
+    
+    if (cont === 1) {
+        answerHJ = C * mass * tempretureDiff;
+        document.getElementById("answer").innerHTML = "<P><I>Heat energy: </I></P>" + answerHJ + " J";
+    }
+}
+
+function tempLarge() {
+    var q;
+	var m;
+	var c;
+	var TempSmall;
+	var deltaT;
+	var cont;
+	
+    cont = 1;
+    
+    q = prompt("Enter heat energy added (J):");
+    m = prompt("Enter mass (kg):");
+    c = prompt("Enter specific heat capacity (J/kg·K):");
+    TempSmall = prompt("Enter initial temperature (K):");
+    
+    q = parseFloat(q);
+    m = parseFloat(m);
+    c = parseFloat(c);
+    TempSmall = parseFloat(TempSmall);
+    
+    if (isNaN(q) || isNaN(m) || isNaN(c) || isNaN(TempSmall)) {
+        document.getElementById("answer").innerHTML = "<P><B>Invalid input values</B></P>";
+        cont = 0;
+    } else if (q <= 0 || m <= 0 || c <= 0 || TempSmall <= 0) {
+        document.getElementById("answer").innerHTML = "<P><B>Values must be positive</B></P>";
+        cont = 0;
+    }
+    
+    if (cont === 1) {
+        deltaT = q / (m * c);
+        TempLarge = TempSmall + deltaT;
+        document.getElementById("answer").innerHTML = "<P><I>Final temperature: </I></P>" + TempLarge + " K";
+    }
+}
+
+function tempSmall() {
+    var q;
+	var m;
+	var c;
+	var TempLarge;
+	var deltaT;
+	var cont;
+    cont = 1;
+    
+    q = prompt("Enter heat energy removed (J):");
+    m = prompt("Enter mass (kg):");
+    c = prompt("Enter specific heat capacity (J/kg·K):");
+    TempLarge = prompt("Enter initial temperature (K):");
+    
+    q = parseFloat(q);
+    m = parseFloat(m);
+    c = parseFloat(c);
+    TempLarge = parseFloat(TempLarge);
+    
+    if (isNaN(q) || isNaN(m) || isNaN(c) || isNaN(TempLarge)) {
+        document.getElementById("answer").innerHTML = "<P><B>Invalid input values</B></P>";
+        cont = 0;
+    } else if (q <= 0 || m <= 0 || c <= 0 || TempLarge <= 0) {
+        document.getElementById("answer").innerHTML = "<P><B>Values must be positive</B></P>";
+        cont = 0;
+    }
+    
+    if (cont == 1) {
+        deltaT = q / (m * c);
+        TempSmall = TempLarge - deltaT;
+        if (TempSmall < 0) {
+            document.getElementById("answer").innerHTML = "<P><B>Temperature cannot be negative</B></P>";
+        } else {
+            document.getElementById("answer").innerHTML = "<P><I>Final temperature: </I></P>" + TempSmall + " K";
+        }
+    }
+}
+
+function mass() {
+    var q;
+	var c;
+	var Temp1;
+	var Temp2;
+	var deltaT;
+	var cont;
+    cont = 1;
+    
+    q = prompt("Enter heat energy (J):");
+    c = prompt("Enter specific heat capacity (J/kg·K):");
+    Temp1 = prompt("Enter temperature 1 (K):");
+    Temp2 = prompt("Enter temperature 2 (K):");
+    
+    q = parseFloat(q);
+    c = parseFloat(c);
+    Temp1 = parseFloat(Temp1);
+    Temp2 = parseFloat(Temp2);
+    deltaT = Math.abs(Temp1 - Temp2);
+    
+    if (isNaN(q) || isNaN(c) || isNaN(Temp1) || isNaN(Temp2)) {
+        document.getElementById("answer").innerHTML = "<P><B>Invalid input values</B></P>";
+        cont = 0;
+    } else if (q <= 0 || c <= 0 || Temp1 <= 0 || Temp2 <= 0) {
+        document.getElementById("answer").innerHTML = "<P><B>Values must be positive</B></P>";
+        cont = 0;
+    } else if (deltaT == 0) {
+        document.getElementById("answer").innerHTML = "<P><B>Temperatures must be different</B></P>";
+        cont = 0;
+    }
+    
+    if (cont == 1) {
+        mass = q / (c * deltaT);
+        document.getElementById("answer").innerHTML = "<P><I>Mass: </I></P>" + mass + " kg";
+    }
+}
+
+function specificHeatCapacity() {
+    var q;
+	var	m;
+	var Temp1;
+	var Temp2;
+	var deltaT;
+	var cont;
+    cont = 1;
+    
+    q = prompt("Enter heat energy (J):");
+    m = prompt("Enter mass (kg):");
+    Temp1 = prompt("Enter temperature 1 (K):");
+    Temp2 = prompt("Enter temperature 2 (K):");
+    
+    q = parseFloat(q);
+    m = parseFloat(m);
+    Temp1 = parseFloat(Temp1);
+    Temp2 = parseFloat(Temp2);
+    deltaT = Math.abs(Temp1 - Temp2);
+    
+    if (isNaN(q) || isNaN(m) || isNaN(Temp1) || isNaN(Temp2)) {
+        document.getElementById("answer").innerHTML = "<P><B>Invalid input values</B></P>";
+        cont = 0;
+    } else if (q <= 0 || m <= 0 || Temp1 <= 0 || Temp2 <= 0) {
+        document.getElementById("answer").innerHTML = "<P><B>Values must be positive</B></P>";
+        cont = 0;
+    } else if (deltaT == 0) {
+        document.getElementById("answer").innerHTML = "<P><B>Temperatures must be different</B></P>";
+        cont = 0
+    }
+    
+    if (cont == 1) {
+        c = q / (m * deltaT);
+        document.getElementById("answer").innerHTML = "<P><I>Specific heat capacity: </I></P>" + c + " J/(kg·K)";
+    }
+}
+
+window.onload = function() {
+	
+	document.getElementById("heatButton").addEventListener("click", HeatJouls);
+	document.getElementById("massButton").addEventListener("click", mass);
+	document.getElementById("temp1Button").addEventListener("click", tempLarge);
+	document.getElementById("temp2Button").addEventListener("click", tempSmall);
+	document.getElementById("specificHeatCapacityButton").addEventListener("click", specificHeatCapacity)
+	
+}
+
+</SCRIPT>
+</HEAD>
+<BODY BGCOLOR = #bec3bb>
+<CENTER><H2>Heat Calculator</H2></CENTER>
+<HR>
+<CENTER>
+<H1><B>Please select the missing variable</B></H1>
+<BUTTON id=massButton>Mass</BUTTON>
+<BUTTON id=temp1Button>Larger Tempreture</BUTTON>
+<BUTTON id=temp2Button>Smaller Tempreture</BUTTON>
+<BUTTON id=specificHeatCapacityButton>Specific Heat Capacity</BUTTON>
+<BUTTON id=heatButton>Heat</BUTTON>
+<DIV id="output"></DIV>
+<DIV id="answer"></DIV>
+</CENTER>
+<SCRIPT LANGUAGE="JavaScript">main();</SCRIPT>
+<STYLE>
+  button {
+	height: 60px;
+	width: 220px;
+    padding: 0;
+    border: none;
+    border-radius: 25px;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 10px 0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    color: #CCCCCC;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+  }
+  
+  #heatButton {
+	background-color: #003366;
+  }
+  
+  #massButton {
+	background-color: #003366;
+  }
+  
+  #temp1Button {
+	background-color: #003366;
+  }
+  
+  #temp2Button {
+	background-color: #003366;
+  }
+  
+  #specificHeatCapacityButton {
+	background-color: #003366;
+  }
+</STYLE>
+</BODY>
+</HTML>
