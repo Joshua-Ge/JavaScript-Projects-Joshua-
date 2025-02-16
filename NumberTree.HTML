@@ -1,0 +1,30 @@
+<HTML>
+<HEAD>
+<TITLE>Number Tree</TITLE>
+<SCRIPT LANGUAGE="JavaScript">
+function main() {
+    var wantedNumber;
+    var amount;
+    var printable;
+
+    wantedNumber = prompt("How many repetitions?");
+    wantedNumber = parseInt(wantedNumber);
+
+    for (amount = 1; amount <= wantedNumber; amount++) {
+        printable = "";
+
+        for (let number = 1; number <= amount; number++) {
+            printable += number; 
+        }
+
+        document.write(printable + "<BR>"); 
+    }
+}
+</SCRIPT>
+</HEAD>
+<BODY BGCOLOR="#bec3bb">
+<H2>Number Tree</H2>
+<HR>
+<SCRIPT LANGUAGE="JavaScript">main();</SCRIPT>
+</BODY>
+</HTML>
