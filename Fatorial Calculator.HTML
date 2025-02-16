@@ -1,0 +1,39 @@
+<HTML>
+<HEAD>
+<TITLE>Factorial Calculator</TITLE>
+<SCRIPT LANGUAGE="JavaScript">
+function main() {
+
+    var number;
+	var baseNumber;
+	var factorial;
+    
+	number = prompt("What number do you want to see the factorial of?");
+	
+    number = parseInt(number);
+
+    if (isNaN(number) || number < 0) {
+        document.getElementById("Text").innerHTML = "Please enter a valid non-negative integer.";
+        return;
+    }
+
+    factorial = 1;
+	baseNumber = 1;
+
+    for (baseNumber = 1; baseNumber <= number; baseNumber++) {
+        factorial *= baseNumber; 
+    }
+
+    document.getElementById("Text").innerHTML = "The factorial of " + number + " is:";
+    document.getElementById("Answer").innerHTML = factorial;
+}
+</SCRIPT>
+</HEAD>
+<BODY BGCOLOR="#bec3bb">
+<H2>Factorial Calculator</H2>
+<HR>
+<DIV id="Text"></DIV>
+<DIV id="Answer"></DIV>
+<SCRIPT LANGUAGE="JavaScript">main();</SCRIPT>
+</BODY>
+</HTML>
