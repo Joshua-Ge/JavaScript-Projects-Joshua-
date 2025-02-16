@@ -1,0 +1,27 @@
+<HTML>
+<HEAD>
+<TITLE>Star Pattern</TITLE>
+<SCRIPT LANGUAGE = "JavaScript">
+function main()
+{
+	var starAmount;
+	var amount;
+	
+	starAmount = prompt("What is the amount of pattern repeations that you want to see");
+	starAmount = parseInt(starAmount);
+	amount = 1;
+	
+	for (;amount < starAmount + 1; amount = amount + 1) 
+	{
+		document.write( "*".repeat(amount) + "<BR>");
+	}
+}
+</SCRIPT>
+</HEAD>
+<BODY>
+<BODY BGCOLOR = white>
+<H2>Star Pattern</H2>
+<HR>
+<SCRIPT LANGUAGE="JavaScript">main();</SCRIPT>
+</BODY>
+</HTML>
