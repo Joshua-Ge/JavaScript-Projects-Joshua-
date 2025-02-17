@@ -14,16 +14,18 @@ function main()
 	N2 = prompt("What is your second number");
 	N3 = prompt("What is your third number");
 	
-	N1 = parseFloat(N1);
-	N2 = parseFloat(N2);
-	N3 = parseFloat(N3);
+	if (!isNaN(N1) && !isNaN(N2) && !isNaN(N3)) {
+		N1 = parseFloat(N1);
+		N2 = parseFloat(N2);
+		N3 = parseFloat(N3);
 		
-	sum = N1 + N2 + N3;
+		sum = N1 + N2 + N3;
 		
-	average = sum/3;
+		average = sum/3;
 	
-	document.write("Your total is: " + sum + "<BR>");
-	document.write("Your average is: " + average);
+		document.write("Your total is: " + sum + "<BR>");
+		document.write("Your average is: " + average);
+	}
 	
 	
 }
