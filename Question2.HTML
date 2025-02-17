@@ -18,21 +18,22 @@ function main()
 	month = prompt("what month were you born in >>");
 	favNumber = prompt("What is your favourite number");
 	
-	age = parseInt(age);
+	if (!isNaN(Fname) && !isNaN(Sname) && !isNaN(age) && !isNaN(month) && !isNaN(favNumber) && age > 0) {
+		age = parseInt(age);
 	
-	luckynum = (favNumber * 12) - month
+		luckynum = (favNumber * 12) - month
 	
-	yearBorn = 2025 - age;
+		yearBorn = 2025 - age;
 	
-	document.write("Big Brother Contestant Profile: <BR>");
-	document.write(Fname + " " + Sname + "was born in " + yearBorn + ", <BR>");
-	document.write("and their lucky number is " + luckynum);
-	
+		document.write("Big Brother Contestant Profile: <BR>");
+		document.write(Fname + " " + Sname + "was born in " + yearBorn + ", <BR>");
+		document.write("and their lucky number is " + luckynum);
+	}
 }
 </SCRIPT>
 </HEAD>
 <BODY>
-<BODY BGCOLOR = white>
+<BODY BGCOLOR = "#bec3bb">
 <H2>Question 2</H2>
 <HR>
 <SCRIPT LANGUAGE="JavaScript">main();</SCRIPT>
