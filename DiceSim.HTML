@@ -1,0 +1,49 @@
+<HTML>
+<HEAD>
+<TITLE>Dice roller</TITLE>
+<SCRIPT LANGUAGE = "JavaScript">
+function main()
+{
+	var diceType;
+	var randomisedValue;
+	var answer;
+	
+	diceType = prompt("What dice do you want to simulate (4,6,8,10,12,20)");
+	
+	diceType = parseInt(diceType);
+	
+	if (diceType == 4) {
+		randomisedValue = Math.random() * (diceType + 1);
+		answer = Math.floor(randomisedValue)		
+	} else if (diceType == 6) {
+		randomisedValue = Math.random() * (diceType + 1);
+		answer = Math.floor(randomisedValue)
+	} else if (diceType == 8) {
+		randomisedValue = Math.random() * (diceType + 1);
+		answer = Math.floor(randomisedValue)
+	} else if (diceType == 10) {
+		randomisedValue = Math.random() * (diceType + 1);
+		answer = Math.floor(randomisedValue)
+	} else if (diceType == 12) {
+		randomisedValue = Math.random() * (diceType + 1);
+		answer = Math.floor(randomisedValue)
+	} else if (diceType == 20) {
+		randomisedValue = Math.random() * (diceType + 1);
+		answer = Math.floor(randomisedValue)
+	} else {
+		alert("Please select a correct answer");
+	}
+	
+	document.write("Log_1: " + randomisedValue + "<BR>");
+	document.write("Result: " + answer);
+	
+}
+</SCRIPT>
+</HEAD>
+<BODY>
+<BODY BGCOLOR = "#008c8c">
+<H2>Dice Roller</H2>
+<HR>
+<SCRIPT LANGUAGE="JavaScript">main();</SCRIPT>
+</BODY>
+</HTML>
