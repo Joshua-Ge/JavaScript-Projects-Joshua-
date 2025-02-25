@@ -1,0 +1,100 @@
+<HTML>
+<HEAD>
+<TITLE>Maze Game</TITLE>
+<SCRIPT LANGUAGE="JavaScript">
+function main() {
+    var response;
+    var room = "cell1";
+    var q1answer;
+
+    alert("You wake up in a strange room. It looks like a cell.");
+    alert("The door has been left open!");
+    alert("Your head feels funny. Were you knocked on the head? Were you drugged?");
+    alert("You leave the cell ...");
+    alert("In the next room there are two doors.");
+
+    while (true) {
+        if (room === "cell1") {
+            alert("You are in Cell 1.");
+            alert("Left = L & Right = R & Forward = F & Back = B & Read = Read");
+            response = prompt("What direction do you choose?");
+            response = response.toUpperCase();
+
+            if (response === "L") {
+                alert("You fall through a trap door to your death!");
+                break;
+            } else if (response === "R") {
+                alert("You come across another empty room.");
+                room = "cell2";
+            } else if (response === "F" || response === "B") {
+                alert("You hit a dead end");
+            } else if (response === "READ") {
+                alert("There is nothing to read here.");
+            } else {
+                alert("Please select a valid direction (F, R, B or L)");
+            }
+        } else if (room === "cell2") {
+            alert("You are in Cell 2.");
+            alert("You see a piece of paper in the middle of the room.");
+            response = prompt("What do you do? (Read, F, B, L, R)").toUpperCase();
+
+            if (response === "READ") {
+                q1answer = prompt("How many toes does an ostrich have on one foot?");
+                if (q1answer === "2") {
+                    alert("Correct! You may proceed.");
+                    room = "cell3";
+                } else {
+                    alert("This is the end for you!");
+                    break;
+                }
+            } else if (response === "F" || response === "B" || response === "L" || response === "R") {
+                alert("You hit a dead end.");
+            } else {
+                alert("Please select a valid option (Read, F, R, B or L).");
+            }
+        } else if (room === "cell3") {
+            alert("You are in Cell 3.");
+            alert("There is a locked chest in the middle of the room.");
+            response = prompt("What do you do? (Open, F, B, L, R)").toUpperCase();
+
+            if (response === "OPEN") {
+                alert("You try to open the chest...");
+                q1answer = prompt("What is the square root of 64?");
+                if (q1answer === "8") {
+                    alert("Correct! The chest opens, and you find a key.");
+                    room = "cell4";
+                } else {
+                    alert("The chest remains locked. You are trapped forever.");
+                    break;
+                }
+            } else if (response === "F" || response === "B" || response === "L" || response === "R") {
+                alert("You hit a dead end.");
+            } else {
+                alert("Please select a valid option (Open, F, R, B or L).");
+            }
+        } else if (room === "cell4") {
+            alert("You are in Cell 4.");
+            alert("There is a giant door ahead of you. It seems to be the exit!");
+            response = prompt("What do you do? (Unlock, F, B, L, R)").toUpperCase();
+
+            if (response === "UNLOCK") {
+                alert("You use the key from the chest to unlock the door.");
+                alert("Congratulations! You have escaped the maze!");
+                break;
+            } else if (response === "F" || response === "B" || response === "L" || response === "R") {
+                alert("You hit a dead end.");
+            } else {
+                alert("Please select a valid option (Unlock, F, R, B or L).");
+            }
+        }
+    }
+}
+</SCRIPT>
+</HEAD>
+<BODY>
+<BODY BGCOLOR="white">
+<H2>Maze Game</H2>
+<HR>
+<SCRIPT LANGUAGE="JavaScript">main();</SCRIPT>
+</BODY>
+</HTML>

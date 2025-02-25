@@ -1,0 +1,42 @@
+<HTML>
+<HEAD>
+<TITLE>Clock converter</TITLE>
+<SCRIPT LANGUAGE = "JavaScript">
+function main()
+{
+	var hours;
+	var min;
+	var timeSection;
+	var response;
+	
+	hours = prompt("What is the hours");
+	min = prompt("What are the minutes");
+	timeSection = prompt("What time is it (AM/PM)");
+	
+	hours = parseInt(hours);
+	min = parseInt(min);
+	timeSection = timeSection.toLowerCase();
+	
+	if (min < 10) {
+		min = "0" + min;
+	}
+	
+	if (timeSection == 'am') {
+		response = hours + ":" + min;
+	} else {
+		hours = hours + 12;
+		response = hours + ":" + min;
+	}
+	
+	document.write(response)
+	
+}
+</SCRIPT>
+</HEAD>
+<BODY>
+<BODY BGCOLOR = white>
+<H2>Clock converter</H2>
+<HR>
+<SCRIPT LANGUAGE="JavaScript">main();</SCRIPT>
+</BODY>
+</HTML>
