@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>horse</title>
+</head>
+<body>
+<img name = "horse" src = "horse1.jpg">
+  <script>
+	var headMovements
+  
+	function main() {
+		
+		var roll1;
+		var roll2;
+		var total;
+		
+		roll1 = roll_dice();
+		roll2 = roll_dice();
+		total = roll1 + roll2;
+		
+		headMovements = 2 * total;
+		
+		nod_head()
+		
+	}
+	
+	function nod_head() {
+		
+		console.log("Entered");
+		headMovements = headMovements -1;
+		if (headMovements % 2 == 1) {
+		
+			document.horse.src = "horse2.jpg";
+			console.log("UP")
+		
+		} else {
+		
+			document.horse.src = "horse1.jpg";
+			console.log("DOWN");
+		
+		}
+		
+		if (headMovements > 0) {
+		
+			timerID = setTimeout("nod_head()", 300)
+		
+		}
+	
+	}
+	
+	function roll_dice() {
+	
+		var randNumber; 
+		var rollValue;
+		randNumber=Math.random(); randNumber=randNumber*6;
+		randNumber= randNumber +0.5;
+		rollValue=Math.round(randNumber);
+		return(rollValue);
+
+	}
+	
+	main()
+  </script>
+
+</body>
+</html>
