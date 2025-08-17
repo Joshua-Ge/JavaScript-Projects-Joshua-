@@ -1,0 +1,50 @@
+<HTML>
+<HEAD>
+<TITLE>Athlete Info</TITLE>
+<SCRIPT LANGUAGE = "JavaScript">
+
+function main() {
+    info = get_info();
+    show_info(info);
+}
+
+function get_info() {
+    var name;
+    var age;
+    var club;
+    var n;
+    var athlete = new Array();
+    var count;
+    count = 0;
+
+    do {
+        name  = prompt("What is the athletes name?");
+        age = prompt("What is your athletes age?");
+        club = prompt("What is the club that your athlete plays for?");
+        
+        athlete[count] = new Object;
+        athlete[count].name = name;
+        athlete[count].age = age;
+        athlete[count].club = club;
+
+        n = prompt("Is their another athlete?");    
+    } while (n == "y")
+    return athlete
+}
+
+function show_info(data) {
+    var n
+    for (n = 0; n < data.length; n++) {
+        document.write("the athlete is " + data[n].name + " they are " + data[n].age + " years old, they play at " + data[n].club + " club <BR>");
+    }
+
+}
+</SCRIPT>
+</HEAD>
+<BODY>
+<BODY BGCOLOR = "#bec3bb">
+<H2>Athlete Info</H2>
+<HR>
+<SCRIPT LANGUAGE="JavaScript">main();</SCRIPT>
+</BODY>
+</HTML>

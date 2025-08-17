@@ -1,0 +1,91 @@
+<HTML>
+<HEAD>
+<TITLE>Students grades</TITLE>
+<SCRIPT LANGUAGE = "JavaScript">
+
+function main() {
+    info = get_info();
+    average = class_average(info);
+    show_info(info, average)
+
+}
+
+function get_info() {
+    var name;
+    var grade;
+    var result;
+    var count;
+    var cont;
+    var students = new Array();
+    
+    count = 0;
+    cont = 'y';
+
+    while (cont == 'y') {
+        name = prompt("What is the name of the student?");
+        grade = prompt("What is the grade of the student out of 100");
+
+        grade = parseInt(grade);
+
+        result = grading(grade);
+
+        students[count] = {student_name: name, student_grade_num: grade, student_result: result};
+        
+        count++;
+
+        cont = prompt("Would you like to add another student?").toLowerCase();
+    }
+    return students
+}
+
+function class_average(data) {
+    var n;
+    var average;
+    average = 0;
+    for (n=0 ; n<data.length;n++) {
+        average += data[n].student_grade_num
+    }
+
+    average = average / data.length;
+
+    return average;
+}
+
+function grading(grade) {
+    var result;
+
+    if (grade >= 90) {
+        result = 'A'
+    } else if (grade >= 70) {
+        result = 'B'
+    } else if (grade >= 50) {
+        result = 'C'
+    } else if (grade >= 30) {
+        result = "D"
+    } else {
+        result = "E";
+    }
+
+    return result;
+
+}
+
+function show_info(data, average) {
+    var n;
+
+    for (n = 0; n < data.length; n++) {
+        document.write("Name : " + data[n].student_name + " | Score : " + data[n].student_grade_num + " | Grade : " + data[n].student_result + "<BR>");
+    }
+
+    document.write("Class Average " + average);
+}
+
+</SCRIPT>
+</HEAD>
+<BODY>
+<BODY BGCOLOR = "#bec3bb">
+<H2>Student Grading</H2>
+<HR>
+<SCRIPT LANGUAGE="JavaScript">main();</SCRIPT>
+</BODY>
+</HTML>

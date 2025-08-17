@@ -1,0 +1,53 @@
+<HTML>
+<HEAD>
+<TITLE>Book Info</TITLE>
+<SCRIPT LANGUAGE = "JavaScript">
+
+function main() {
+    info = get_info();
+    show_info(info);
+}   
+
+function get_info() {
+    var book_info = new Array();
+    var title_of_book;
+    var author_of_book;
+    var year_published;
+    var cont;
+    var counter; 
+
+    counter = 0;
+    cont = 'y';
+
+    while (cont == 'y') {
+
+        title_of_book = prompt("What is the title of the book?");
+        author_of_book = prompt("Who is the author of the book?");
+        year_published = prompt("When was the book published?");
+
+        book_info[counter] = {name: title_of_book, author: author_of_book, year: year_published};
+        counter += 1;
+
+        cont = prompt("Would you like to continue?").toLowerCase();
+    }
+
+    return book_info;
+
+}
+
+function show_info(data) {
+    var n;
+    for (n=0;n<data.length;n++) {
+        document.write("Title : " + data[n].name + " | Author: " + data[n].author + " | Year of Publish: " + data[n].year + "<BR>");
+    }
+}
+
+</SCRIPT>
+</HEAD>
+<BODY>
+<BODY BGCOLOR = "#bec3bb">
+<H2>Book Info</H2>
+<HR>
+<SCRIPT LANGUAGE="JavaScript">main();</SCRIPT>
+</BODY>
+</HTML>
